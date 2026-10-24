@@ -247,14 +247,21 @@ export function startaHandelser(svg: SVGSVGElement) {
     himmel: svg.querySelector<SVGGElement>('#himmelslager')!,
     mark: svg.querySelector<SVGGElement>('#marklager')!,
   };
+  const pagaende = new Set<Handelse>();
   let forra: Handelse | undefined;
 
-  async function nasta() {
-    const mojliga = HANDELSER.filter((h) => h !== forra && (!h.bara || h.bara === (arDag() ? 'dag' : 'natt')));
-    forra = valj(mojliga);
-    await forra.spela(lager, synligKant(svg));
-    setTimeout(nasta, slump(15000, 30000));
+  // Händelserna överlappar gärna, men samma händelse spelas aldrig två gånger samtidigt eller i rad.
+  function starta() {
+    const tid = arDag() ? 'dag' : 'natt';
+    const mojliga = HANDELSER.filter((h) => h !== forra && !pagaende.has(h) && (!h.bara || h.bara === tid));
+    if (mojliga.length) {
+      const handelse = valj(mojliga);
+      forra = handelse;
+      pagaende.add(handelse);
+      handelse.spela(lager, synligKant(svg)).finally(() => pagaende.delete(handelse));
+    }
+    setTimeout(starta, slump(2500, 6000));
   }
 
-  setTimeout(nasta, slump(1200, 2500));
+  setTimeout(starta, 600);
 }

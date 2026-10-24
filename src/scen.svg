@@ -146,14 +146,12 @@
   <use href="#horn-nara" fill="none" stroke="#c8102e" stroke-width="46" stroke-dasharray="20 38"/>
   <g fill="#c8102e">
     <path d="M1062 213C1073 250 1077 300 1071 343L1095 345C1101 300 1097 250 1087 216Z"/>
-    <path d="M824 398L902 382L910 420L832 438Z"/>
     <rect x="624" y="798" width="110" height="34" rx="3"/>
     <rect x="905" y="798" width="108" height="34" rx="3"/>
   </g>
   <g fill="#a50d26">
     <rect x="739" y="798" width="68" height="34" rx="3"/>
     <rect x="847" y="798" width="62" height="34" rx="3"/>
-    <path d="M832 438L910 420L912 430L834 448Z"/>
   </g>
   <g class="ljus" fill="none" stroke-linecap="round">
     <use href="#horn-nara" stroke="#fff3b0" stroke-width="16" stroke-dasharray="0 29" opacity="0.5" filter="url(#sken)"/>
