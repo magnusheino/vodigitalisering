@@ -112,6 +112,62 @@ body {
   opacity: 0.15;
 }
 
+/* ---------- Händelser: figurer som dyker upp i scenen då och då ---------- */
+
+.handelser {
+  pointer-events: none;
+}
+
+.handelser .ben {
+  transform-box: fill-box;
+  transform-origin: top;
+  animation: galopp 0.36s ease-in-out infinite alternate;
+}
+
+.handelser .ben--snabb {
+  animation-duration: 0.2s;
+}
+
+.handelser .ben--andra {
+  animation-direction: alternate-reverse;
+}
+
+@keyframes galopp {
+  from {
+    transform: rotate(-28deg);
+  }
+  to {
+    transform: rotate(28deg);
+  }
+}
+
+.handelser .vinka {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+  animation: vinka 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes vinka {
+  from {
+    transform: rotate(-25deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+.handelser .flaxa {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flaxa 0.28s ease-in-out infinite alternate;
+}
+
+@keyframes flaxa {
+  to {
+    transform: scaleY(-0.7);
+  }
+}
+
 .stjarnor .blink {
   animation: blinka 4s ease-in-out infinite;
 }
@@ -141,7 +197,9 @@ body.dag {
   left: 2.5%;
   top: 3%;
   color: var(--gradde);
-  text-shadow: 0 2px 12px rgb(0 0 0 / 0.5);
+  text-shadow:
+    0 0 18px rgb(255 215 122 / 0.55),
+    0 2px 12px rgb(0 0 0 / 0.5);
 }
 
 .rubrik__titel {
@@ -164,7 +222,10 @@ body.dag {
   padding: 0.6em 1.2em;
   border: 1px solid rgb(253 243 208 / 0.5);
   border-radius: 999px;
-  background: rgb(253 243 208 / 0.12);
+  background: linear-gradient(rgb(255 255 255 / 0.28), rgb(253 243 208 / 0.08) 55%, rgb(253 243 208 / 0.14));
+  box-shadow:
+    0 0 14px rgb(255 215 122 / 0.35),
+    inset 0 1px 0 rgb(255 255 255 / 0.5);
   color: var(--gradde);
   font: 600 max(13px, 1.1cqw) / 1 var(--sans);
   cursor: pointer;
@@ -240,11 +301,15 @@ body.dag {
 
 .lucka__dorr {
   background:
+    linear-gradient(168deg, rgb(255 255 255 / 0.42), rgb(255 255 255 / 0.1) 42%, transparent 46%),
     radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.22), transparent 60%),
+    linear-gradient(transparent 55%, rgb(0 0 0 / 0.18)),
     var(--farg);
   box-shadow:
+    0 0 1.4cqw color-mix(in srgb, var(--farg) 75%, transparent),
     0 0.35cqw 1cqw rgb(0 0 0 / 0.45),
-    inset 0 0 0 0.18cqw rgb(253 243 208 / 0.65);
+    inset 0 0 0 0.18cqw rgb(253 243 208 / 0.65),
+    inset 0 0.25cqw 0.5cqw rgb(255 255 255 / 0.35);
   color: var(--gradde);
   font: 700 var(--siffra) / 1 var(--serif);
   text-shadow: 0 0.15cqw 0.3cqw rgb(0 0 0 / 0.4);

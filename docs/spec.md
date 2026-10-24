@@ -43,6 +43,7 @@ Ett lättsamt kollegaskoj i december: varje arbetsdag fram till julafton öppnas
 
 - Helskärmsscen: vinternatt med Gävlebocken (egen SVG-illustration, ingen officiell bild eller logga).
 - Klick på månen gör det dag: solen går upp, himlen ljusnar och stjärnorna slocknar. Klick på solen gör det natt igen. Sidan minns inte valet.
+- Något händer i scenen ett par sekunder efter att sidan öppnats och sedan var 15–30:e sekund. Händelsen slumpas, och samma händelse kommer aldrig två gånger i rad: tomten med renarna flyger förbi, nissar springer över snön, en nisse kikar fram bakom bocken och vinkar, eller en hare skuttar förbi. Bara på natten finns stjärnfall och norrsken, bara på dagen fåglar. Med reducerad rörelse händer inget.
 - Luckorna ligger utspridda och osymmetriskt runt bocken, på fasta handplacerade platser (`src/placering.ts`), i olika storlekar och former. 23/12 är störst.
 - Dagens lucka glöder. Öppnade luckor visas med dörren uppslagen; sidan minns dem i webbläsaren.
 - Klick på en upplåst lucka: dörren svänger upp och uppdraget visas i en ruta ovanpå.

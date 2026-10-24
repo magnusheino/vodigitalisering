@@ -2,6 +2,7 @@ import './style.css';
 import scen from './scen.svg?raw';
 import { KALENDERKANALEN_URL, UPPDRAG, type Uppdrag } from './innehall';
 import { datumtext, idag, kalenderlage, luckansDag, luckansStatus, markning } from './kalender';
+import { startaHandelser } from './handelser';
 import { PLACERING } from './placering';
 
 const IDAG = idag(new Date(), location.search);
@@ -226,3 +227,4 @@ stangVidKlickUtanfor(regelruta);
 startaRegler();
 snoa();
 vaxlaDygn();
+startaHandelser(yta.querySelector<SVGSVGElement>('.scen__bild')!);
