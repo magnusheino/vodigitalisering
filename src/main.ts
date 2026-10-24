@@ -204,6 +204,20 @@ function snoa() {
   }
 }
 
+function vaxlaDygn() {
+  const himlakropp = document.querySelector<SVGGElement>('.himlakropp')!;
+  const vaxla = () => {
+    const dag = document.body.classList.toggle('dag');
+    himlakropp.setAttribute('aria-label', dag ? 'Låt solen gå ner' : 'Låt solen gå upp');
+  };
+  himlakropp.addEventListener('click', vaxla);
+  himlakropp.addEventListener('keydown', (handelse) => {
+    if (handelse.key !== 'Enter' && handelse.key !== ' ') return;
+    handelse.preventDefault();
+    vaxla();
+  });
+}
+
 yta.insertAdjacentHTML('afterbegin', scen);
 visaLage();
 ritaLuckor();
@@ -211,3 +225,4 @@ stangVidKlickUtanfor(uppdragsruta);
 stangVidKlickUtanfor(regelruta);
 startaRegler();
 snoa();
+vaxlaDygn();

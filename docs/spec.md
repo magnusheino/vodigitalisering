@@ -41,7 +41,8 @@ Ett lättsamt kollegaskoj i december: varje arbetsdag fram till julafton öppnas
 
 ## Utseende
 
-- Helskärmsscen: vinternatt med Gävlebocken (egen SVG-illustration, ingen officiell bild eller logga) och skylten "Bocken står fortfarande ✅".
+- Helskärmsscen: vinternatt med Gävlebocken (egen SVG-illustration, ingen officiell bild eller logga).
+- Klick på månen gör det dag: solen går upp, himlen ljusnar och stjärnorna slocknar. Klick på solen gör det natt igen. Sidan minns inte valet.
 - Luckorna ligger utspridda och osymmetriskt runt bocken, på fasta handplacerade platser (`src/placering.ts`), i olika storlekar och former. 23/12 är störst.
 - Dagens lucka glöder. Öppnade luckor visas med dörren uppslagen; sidan minns dem i webbläsaren.
 - Klick på en upplåst lucka: dörren svänger upp och uppdraget visas i en ruta ovanpå.

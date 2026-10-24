@@ -20,6 +20,7 @@
 body {
   margin: 0;
   background: var(--natt);
+  transition: background-color 1.6s ease-in-out;
   color: var(--text);
   font-family: var(--sans);
   line-height: 1.5;
@@ -51,6 +52,66 @@ body {
   overflow: visible;
 }
 
+/* ---------- Dag och natt: klick på månen låter solen gå upp, klick på solen gör det natt igen ---------- */
+
+.dagshimmel,
+.stjarnor,
+.hus,
+.fonster,
+.mane,
+.sol {
+  transition:
+    opacity 1.6s ease-in-out,
+    fill 1.6s ease-in-out,
+    transform 1.6s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+.dagshimmel,
+.sol {
+  opacity: 0;
+}
+
+.sol {
+  transform: translateY(700px);
+}
+
+.himlakropp {
+  cursor: pointer;
+  outline: none;
+}
+
+.himlakropp:focus-visible .mane > :last-child,
+.himlakropp:focus-visible .sol > :last-child {
+  stroke: #fff;
+  stroke-width: 4;
+}
+
+.dag .dagshimmel,
+.dag .sol {
+  opacity: 1;
+}
+
+.dag .sol {
+  transform: none;
+}
+
+.dag .mane {
+  opacity: 0;
+  transform: translateY(700px);
+}
+
+.dag .stjarnor {
+  opacity: 0;
+}
+
+.dag .hus {
+  fill: #6f86a6;
+}
+
+.dag .fonster {
+  opacity: 0.15;
+}
+
 .stjarnor .blink {
   animation: blinka 4s ease-in-out infinite;
 }
@@ -69,6 +130,10 @@ body {
   50% {
     opacity: 0.55;
   }
+}
+
+body.dag {
+  background-color: #7db8e8;
 }
 
 .rubrik {
@@ -470,6 +535,10 @@ body {
     background: linear-gradient(var(--natt), var(--natt-ljus));
   }
 
+  body.dag {
+    background: linear-gradient(#3f86cf, #d9ecfa);
+  }
+
   .scen {
     position: static;
     overflow: visible;
@@ -584,6 +653,16 @@ body {
   .stjarnor .blink,
   .ljus {
     animation: none;
+  }
+
+  .dagshimmel,
+  .stjarnor,
+  .hus,
+  .fonster,
+  .mane,
+  .sol,
+  body {
+    transition: none;
   }
 
   .lucka[data-status='öppen'] {
