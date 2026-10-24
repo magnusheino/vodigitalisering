@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="En lucka per arbetsdag fram till jul – med ett AI-fritt uppdrag bakom varje." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>" />
+    <title>Julkalendern</title>
+  </head>
+  <body>
+    <main class="scen">
+      <div class="scen__yta" id="yta">
+        <header class="rubrik">
+          <h1 class="rubrik__titel">Julkalendern <span id="ar"></span></h1>
+          <p class="rubrik__lage" id="lage"></p>
+        </header>
+        <button class="regelknapp" id="regelknapp" type="button">Så funkar det</button>
+        <ol class="luckor" id="luckor" aria-label="Luckor"></ol>
+      </div>
+      <div class="sno" id="sno" aria-hidden="true"></div>
+    </main>
+
+    <dialog class="ruta" id="uppdragsruta" aria-labelledby="uppdragsrubrik"></dialog>
+
+    <dialog class="ruta" id="regelruta" aria-labelledby="regelrubrik">
+      <button class="ruta__stang" type="button" data-stang aria-label="Stäng">✕</button>
+      <h2 id="regelrubrik" class="ruta__rubrik">Så funkar det</h2>
+      <ul class="regler">
+        <li><span aria-hidden="true">🎄</span> En lucka per arbetsdag, från 1 december fram till julafton.</li>
+        <li><span aria-hidden="true">⏰</span> Dagens uppdrag görs och lämnas in samma dag – senast kl 23:59.</li>
+        <li><span aria-hidden="true">📸</span> Lämna in i kalenderkanalen i Teams. Börja ditt inlägg med luckans märkning, så hittar alla rätt.</li>
+        <li><span aria-hidden="true">💬</span> Gissningar och kommentarer skriver du som svar på inlägget.</li>
+        <li><span aria-hidden="true">📖</span> Gamla luckor går att läsa, men inlämningen är stängd.</li>
+        <li><span aria-hidden="true">🙅</span> Inga AI-assistenter – bara du, en post-it och din fantasi.</li>
+      </ul>
+      <button class="knapp" type="button" data-stang>Nu kör vi!</button>
+    </dialog>
+
+    <div class="notis" id="notis" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

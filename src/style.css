@@ -1,0 +1,587 @@
+:root {
+  --natt: #0c1d3d;
+  --natt-ljus: #2a4672;
+  --gradde: #fdf3d0;
+  --papper: #fffaf0;
+  --papper-mork: #f3ead8;
+  --text: #2b1d14;
+  --rod: #b3262e;
+  --rod-mork: #8c1c24;
+  --gron: #1f6f4a;
+  --guld: #ffd77a;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--natt);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+/* ---------- Scenen: en 16:9-yta centrerad på skärmen, bilden ritas ut över kanterna ---------- */
+
+.scen {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scen__yta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(100vw, 100dvh * 16 / 9);
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  container-type: inline-size;
+}
+
+.scen__bild {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stjarnor .blink {
+  animation: blinka 4s ease-in-out infinite;
+}
+
+@keyframes blinka {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.rubrik {
+  position: absolute;
+  left: 2.5%;
+  top: 3%;
+  color: var(--gradde);
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.5);
+}
+
+.rubrik__titel {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 3.4cqw;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.rubrik__lage {
+  margin: 0.4cqw 0 0;
+  font-size: max(13px, 1.35cqw);
+}
+
+.regelknapp {
+  position: absolute;
+  right: 2.5%;
+  top: 3.5%;
+  padding: 0.6em 1.2em;
+  border: 1px solid rgb(253 243 208 / 0.5);
+  border-radius: 999px;
+  background: rgb(253 243 208 / 0.12);
+  color: var(--gradde);
+  font: 600 max(13px, 1.1cqw) / 1 var(--sans);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.regelknapp:hover {
+  background: rgb(253 243 208 / 0.24);
+}
+
+/* ---------- Luckorna ---------- */
+
+.luckor {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lucka {
+  --bredd: calc(var(--storlek) * 1cqw);
+  --siffra: calc(var(--storlek) * 0.42cqw);
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: var(--bredd);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  perspective: 60cqw;
+  cursor: pointer;
+}
+
+.lucka--hög {
+  aspect-ratio: 1 / 1.4;
+}
+
+.lucka--bred {
+  --bredd: calc(var(--storlek) * 1.4cqw);
+  aspect-ratio: 1.4;
+}
+
+.lucka--rund,
+.lucka--rund .lucka__dorr,
+.lucka--rund .lucka__insida {
+  border-radius: 50%;
+}
+
+.lucka__insida,
+.lucka__dorr {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+}
+
+.lucka__insida {
+  background: radial-gradient(circle at 50% 40%, #233a63, #0a1426);
+  box-shadow: inset 0 0.3cqw 0.8cqw rgb(0 0 0 / 0.7);
+  font-size: var(--siffra);
+}
+
+.lucka__dorr {
+  background:
+    radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.22), transparent 60%),
+    var(--farg);
+  box-shadow:
+    0 0.35cqw 1cqw rgb(0 0 0 / 0.45),
+    inset 0 0 0 0.18cqw rgb(253 243 208 / 0.65);
+  color: var(--gradde);
+  font: 700 var(--siffra) / 1 var(--serif);
+  text-shadow: 0 0.15cqw 0.3cqw rgb(0 0 0 / 0.4);
+  transform-origin: left center;
+  transition:
+    transform 0.6s cubic-bezier(0.3, 0.7, 0.3, 1),
+    filter 0.3s;
+}
+
+.lucka__dorr::before {
+  content: '';
+  position: absolute;
+  inset: 9%;
+  border: 0.12cqw dashed rgb(253 243 208 / 0.55);
+  border-radius: inherit;
+}
+
+.lucka:hover .lucka__dorr {
+  transform: rotateY(-14deg);
+}
+
+.lucka--oppnad .lucka__dorr,
+.lucka--oppnad:hover .lucka__dorr {
+  transform: rotateY(-108deg);
+}
+
+.lucka[data-status='låst'] .lucka__dorr {
+  filter: saturate(0.6) brightness(0.85);
+}
+
+.lucka[data-status='låst']:hover .lucka__dorr {
+  transform: none;
+}
+
+.lucka[data-status='öppen'] {
+  animation: glod 2.4s ease-in-out infinite;
+}
+
+@keyframes glod {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0.4cqw var(--guld));
+  }
+  50% {
+    filter: drop-shadow(0 0 1.6cqw var(--guld));
+  }
+}
+
+.lucka:focus-visible {
+  outline: 3px solid var(--guld);
+  outline-offset: 4px;
+}
+
+.lucka--skakar {
+  animation: skaka 0.4s;
+}
+
+@keyframes skaka {
+  25% {
+    transform: translateX(-6%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+  75% {
+    transform: translateX(-3%);
+  }
+}
+
+/* ---------- Snö ---------- */
+
+.sno {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sno span {
+  position: absolute;
+  top: -10px;
+  left: var(--vanster);
+  width: var(--storlek);
+  height: var(--storlek);
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.75;
+  animation: falla var(--tid) linear var(--fordrojning) infinite;
+}
+
+@keyframes falla {
+  to {
+    transform: translate(var(--drift), 105vh);
+  }
+}
+
+/* ---------- Rutorna (uppdrag och regler) ---------- */
+
+.ruta {
+  width: calc(100% - 32px);
+  max-width: 34rem;
+  max-height: calc(100dvh - 32px);
+  padding: 2rem 2rem 1.75rem;
+  border: none;
+  border-radius: 18px;
+  background: var(--papper);
+  color: var(--text);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.5);
+}
+
+.ruta[open] {
+  animation: in 0.25s ease-out;
+}
+
+.ruta::backdrop {
+  background: rgb(5 11 28 / 0.6);
+  backdrop-filter: blur(3px);
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+.ruta__stang {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.ruta__stang:hover {
+  background: var(--papper-mork);
+}
+
+.ruta__datum {
+  margin: 0;
+  color: var(--rod-mork);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ruta__emoji {
+  margin: 0.5rem 0 0;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.ruta__rubrik {
+  margin: 0.4rem 0 0.75rem;
+  color: var(--rod-mork);
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  line-height: 1.15;
+}
+
+.ruta p {
+  margin: 0 0 0.75rem;
+}
+
+.ruta__inlamning {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: var(--papper-mork);
+}
+
+.ruta__inlamning > :last-child {
+  margin-bottom: 0;
+}
+
+.ruta__deadline {
+  font-weight: 700;
+}
+
+.ruta__notering {
+  color: #6b5a4a;
+  font-style: italic;
+}
+
+.markning {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.markning code {
+  flex: 1 1 auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed #b9a68c;
+  border-radius: 8px;
+  background: #fff;
+  font-family: var(--sans);
+}
+
+.markning__kopiera {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #b9a68c;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.knapp {
+  display: inline-block;
+  margin: 0.25rem 0 0.75rem;
+  padding: 0.7rem 1.3rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--rod);
+  color: #fff;
+  font: 600 1rem / 1.2 var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.knapp:hover {
+  background: var(--rod-mork);
+}
+
+.knapp--sekundar {
+  background: var(--gron);
+}
+
+.knapp--sekundar:hover {
+  background: #17573a;
+}
+
+.regler {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.regler li {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+/* ---------- Notis ---------- */
+
+.notis {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: var(--papper);
+  box-shadow: 0 8px 30px rgb(0 0 0 / 0.4);
+  font-weight: 600;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+  pointer-events: none;
+}
+
+.notis--synlig {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Smala skärmar: bilden som sidhuvud och luckorna i ett rutnät ---------- */
+
+@media (max-width: 700px) {
+  html {
+    background: var(--natt-ljus);
+  }
+
+  body {
+    min-height: 100dvh;
+    background: linear-gradient(var(--natt), var(--natt-ljus));
+  }
+
+  .scen {
+    position: static;
+    overflow: visible;
+  }
+
+  .scen__yta {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    aspect-ratio: auto;
+    padding: 16px 16px 32px;
+    transform: none;
+    container-type: normal;
+  }
+
+  .rubrik {
+    position: static;
+    order: -2;
+  }
+
+  .rubrik__titel {
+    font-size: 2rem;
+  }
+
+  .rubrik__lage {
+    margin-top: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .regelknapp {
+    position: static;
+    order: -1;
+    align-self: flex-start;
+    margin: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .scen__bild {
+    position: static;
+    width: calc(100% + 32px);
+    height: auto;
+    margin: 0 -16px 16px;
+    overflow: hidden;
+  }
+
+  .luckor {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 14px;
+  }
+
+  .lucka,
+  .lucka--hög,
+  .lucka--bred {
+    --siffra: 2rem;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    aspect-ratio: 1;
+    translate: none;
+    perspective: 400px;
+  }
+
+  .lucka__insida {
+    box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.7);
+  }
+
+  .lucka__dorr {
+    box-shadow:
+      0 3px 10px rgb(0 0 0 / 0.45),
+      inset 0 0 0 2px rgb(253 243 208 / 0.65);
+    text-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+  }
+
+  .lucka__dorr::before {
+    border-width: 1px;
+  }
+
+  /* I rutnätet skulle en uppslagen dörr täcka grannluckan, så den tonar bort när den svängt upp. */
+  .lucka--oppnad .lucka__dorr {
+    opacity: 0;
+    transition:
+      transform 0.6s cubic-bezier(0.3, 0.7, 0.3, 1),
+      opacity 0.2s 0.4s;
+  }
+
+  .sno {
+    position: fixed;
+  }
+
+  @keyframes glod {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 4px var(--guld));
+    }
+    50% {
+      filter: drop-shadow(0 0 14px var(--guld));
+    }
+  }
+}
+
+/* ---------- Reducerad rörelse ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .sno {
+    display: none;
+  }
+
+  .stjarnor .blink {
+    animation: none;
+  }
+
+  .lucka[data-status='öppen'] {
+    animation: none;
+    filter: drop-shadow(0 0 1cqw var(--guld));
+  }
+
+  .lucka__dorr,
+  .ruta[open],
+  .notis {
+    transition: none;
+    animation: none;
+  }
+
+  .lucka--skakar {
+    animation: none;
+  }
+}
