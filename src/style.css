@@ -340,6 +340,16 @@ body.dag {
   filter: saturate(0.6) brightness(0.85);
 }
 
+/* Passerade dagar: utgråade, men går fortfarande att öppna och läsa. */
+.lucka[data-status='stängd'] {
+  filter: grayscale(1) brightness(0.75);
+  opacity: 0.7;
+}
+
+.lucka[data-status='stängd']:hover {
+  opacity: 0.9;
+}
+
 .lucka[data-status='låst']:hover .lucka__dorr {
   transform: none;
 }

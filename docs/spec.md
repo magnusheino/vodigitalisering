@@ -17,7 +17,7 @@ Ett lättsamt kollegaskoj i december: varje arbetsdag fram till julafton öppnas
 
 - **Låst** före sitt datum. Klick ger en skakning och en notis om när luckan öppnar.
 - **Öppen** under sitt datum. Inlämning samma dag, senast kl 23:59.
-- **Stängd** därefter: går att öppna och läsa, men märkt "Inlämningen stängd" med länk för att se inlämningarna.
+- **Stängd** därefter: utgråad, men går att öppna och läsa. Rutan säger att det inte längre går att svara på uppdraget och länkar till inlämningarna.
 - Före första luckan visas en nedräkning; under helger "Vilodag – nästa lucka öppnar …"; efter sista luckan "God jul!".
 - Låsning och deadline gäller på heder – sidan kan inte hindra någon från att kika i källkoden eller posta i Teams.
 

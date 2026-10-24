@@ -77,7 +77,7 @@ function ritaLuckor() {
         type: 'button',
         class: `lucka lucka--${plats.form}`,
         'data-status': status,
-        'aria-label': `Lucka ${dag}${status === 'låst' ? ', låst' : ''}`,
+        'aria-label': `Lucka ${dag}${status === 'öppen' ? '' : `, ${status}`}`,
         style: `--x:${plats.x};--y:${plats.y};--storlek:${plats.storlek};--farg:${DORRFARGER[i % DORRFARGER.length]}`,
       },
       el('span', { class: 'lucka__insida', 'aria-hidden': 'true' }, uppdrag.emoji),
@@ -116,7 +116,8 @@ function inlamningsdel(uppdrag: Uppdrag, status: ReturnType<typeof luckansStatus
     return el(
       'div',
       { class: 'ruta__inlamning ruta__inlamning--stangd' },
-      el('p', { class: 'ruta__deadline' }, `🔒 Inlämningen stängde ${datumtext(uppdrag.datum)} kl 23:59.`),
+      el('p', { class: 'ruta__deadline' }, '🔒 Det går inte längre att svara på det här uppdraget.'),
+      el('p', {}, `Inlämningen stängde ${datumtext(uppdrag.datum)} kl 23:59.`),
       kanalknapp('Se inlämningarna i kalenderkanalen'),
     );
   }
