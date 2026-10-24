@@ -13,27 +13,57 @@
       <stop offset="0" stop-color="#f4f8fc"/>
       <stop offset="1" stop-color="#cfdcec"/>
     </linearGradient>
-    <linearGradient id="halmfarg" x1="0" y1="150" x2="0" y2="840" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f2c96a"/>
-      <stop offset="0.6" stop-color="#d9a441"/>
-      <stop offset="1" stop-color="#a8742a"/>
+    <linearGradient id="halmfarg" x1="0" y1="80" x2="0" y2="840" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7d77f"/>
+      <stop offset="0.45" stop-color="#e3b150"/>
+      <stop offset="0.8" stop-color="#c48e36"/>
+      <stop offset="1" stop-color="#9a6824"/>
     </linearGradient>
-    <pattern id="halmstran" width="12" height="46" patternUnits="userSpaceOnUse" patternTransform="rotate(10)">
-      <path d="M3 0V30M9 14V46" stroke="#8a5a1c" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
-      <path d="M6 4V22" stroke="#fbe2a0" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+    <linearGradient id="halmskugga" x1="612" y1="0" x2="1135" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a0e02" stop-opacity="0.32"/>
+      <stop offset="0.55" stop-color="#1a0e02" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1a0e02" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="halmstran" width="9" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(4)">
+      <path d="M2 0V22M6.5 10V34" stroke="#7d5016" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+      <path d="M4.5 3V17M8 20V30" stroke="#fde7a8" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
     </pattern>
+    <filter id="halmkant" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9 0.25" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="mjuk" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="sken" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
     <g id="bocken-langt-bort">
-      <path d="M682 620L686 830H724L728 620Z"/>
-      <path d="M862 620L866 830H904L908 620Z"/>
+      <path d="M738 650L740 836H806L808 650Z"/>
+      <path d="M846 650L848 836H908L910 650Z"/>
     </g>
     <g id="bocken-nara">
-      <path d="M616 610L622 832H664L670 610Z"/>
-      <path d="M914 610L920 832H962L968 610Z"/>
-      <path d="M640 480C700 450 900 450 960 470C1000 485 1005 560 990 610C975 660 900 670 800 668C700 670 625 660 612 610C600 560 600 500 640 480Z"/>
-      <path d="M880 492C896 440 920 392 940 340L1052 326C1044 392 1022 452 1004 528Z"/>
-      <path d="M936 334C926 270 980 226 1042 234C1100 242 1132 290 1122 328C1114 356 1074 360 1046 350C1010 346 948 362 936 334Z"/>
-      <path d="M612 500C578 488 566 522 586 538L606 528Z"/>
+      <path d="M622 630L626 836H732L736 630Z"/>
+      <path d="M904 630L906 836H1010L1016 630Z"/>
+      <path d="M660 442C760 430 860 436 900 448L1000 468C1024 478 1028 520 1025 560L1020 650C1018 690 1002 702 980 702L652 702C626 702 612 688 612 652L612 498C612 464 630 448 660 442Z"/>
+      <path d="M866 470C876 400 898 330 922 280L1042 290C1042 362 1032 440 1022 524Z"/>
+      <path d="M920 302C912 246 948 210 1004 210L1094 216C1124 219 1137 243 1135 274L1133 312C1131 336 1114 346 1091 344L1010 340C958 338 926 332 920 302Z"/>
+      <path d="M616 468C594 456 584 478 596 494L614 492Z"/>
     </g>
+    <clipPath id="form-langt-bort">
+      <path d="M738 650L740 836H806L808 650Z"/>
+      <path d="M846 650L848 836H908L910 650Z"/>
+    </clipPath>
+    <clipPath id="form-nara">
+      <path d="M622 630L626 836H732L736 630Z"/>
+      <path d="M904 630L906 836H1010L1016 630Z"/>
+      <path d="M660 442C760 430 860 436 900 448L1000 468C1024 478 1028 520 1025 560L1020 650C1018 690 1002 702 980 702L652 702C626 702 612 688 612 652L612 498C612 464 630 448 660 442Z"/>
+      <path d="M866 470C876 400 898 330 922 280L1042 290C1042 362 1032 440 1022 524Z"/>
+      <path d="M920 302C912 246 948 210 1004 210L1094 216C1124 219 1137 243 1135 274L1133 312C1131 336 1114 346 1091 344L1010 340C958 338 926 332 920 302Z"/>
+      <path d="M616 468C594 456 584 478 596 494L614 492Z"/>
+    </clipPath>
+    <path id="horn-nara" d="M958 232C934 112 800 74 744 146C700 206 738 328 846 418"/>
+    <path id="horn-langt-bort" d="M992 222C982 104 860 56 800 106C756 146 786 288 882 398"/>
   </defs>
 
   <rect x="-2000" y="-1500" width="5600" height="2400" fill="url(#himmel)"/>
@@ -46,35 +76,54 @@
   <g class="fonster" fill="#ffd77a"><rect x="-1586" y="634" width="10" height="14" rx="1"/><rect x="-1502" y="634" width="10" height="14" rx="1"/><rect x="-1586" y="668" width="10" height="14" rx="1"/><rect x="-1558" y="668" width="10" height="14" rx="1"/><rect x="-1530" y="668" width="10" height="14" rx="1"/><rect x="-1421.9" y="653.1" width="10" height="14" rx="1"/><rect x="-1393.9" y="653.1" width="10" height="14" rx="1"/><rect x="-1365.9" y="653.1" width="10" height="14" rx="1"/><rect x="-1449.9" y="687.1" width="10" height="14" rx="1"/><rect x="-1421.9" y="687.1" width="10" height="14" rx="1"/><rect x="-1365.9" y="687.1" width="10" height="14" rx="1"/><rect x="-1337.9" y="687.1" width="10" height="14" rx="1"/><rect x="-1449.9" y="721.1" width="10" height="14" rx="1"/><rect x="-1393.9" y="721.1" width="10" height="14" rx="1"/><rect x="-1281.2" y="626.9" width="10" height="14" rx="1"/><rect x="-1253.2" y="626.9" width="10" height="14" rx="1"/><rect x="-1225.2" y="626.9" width="10" height="14" rx="1"/><rect x="-1253.2" y="660.9" width="10" height="14" rx="1"/><rect x="-1225.2" y="694.9" width="10" height="14" rx="1"/><rect x="-1309.2" y="728.9" width="10" height="14" rx="1"/><rect x="-1225.2" y="728.9" width="10" height="14" rx="1"/><rect x="-1149.2" y="641" width="10" height="14" rx="1"/><rect x="-1177.2" y="709" width="10" height="14" rx="1"/><rect x="-1121.2" y="709" width="10" height="14" rx="1"/><rect x="-1077.9" y="709.9" width="10" height="14" rx="1"/><rect x="-1049.9" y="709.9" width="10" height="14" rx="1"/><rect x="-1021.9" y="709.9" width="10" height="14" rx="1"/><rect x="-899.5" y="663.9" width="10" height="14" rx="1"/><rect x="-927.5" y="697.9" width="10" height="14" rx="1"/><rect x="-899.5" y="697.9" width="10" height="14" rx="1"/><rect x="-955.5" y="731.9" width="10" height="14" rx="1"/><rect x="-899.5" y="731.9" width="10" height="14" rx="1"/><rect x="-801.3" y="649.8" width="10" height="14" rx="1"/><rect x="-717.3" y="649.8" width="10" height="14" rx="1"/><rect x="-801.3" y="683.8" width="10" height="14" rx="1"/><rect x="-773.3" y="683.8" width="10" height="14" rx="1"/><rect x="-745.3" y="683.8" width="10" height="14" rx="1"/><rect x="-801.3" y="717.8" width="10" height="14" rx="1"/><rect x="-773.3" y="717.8" width="10" height="14" rx="1"/><rect x="-745.3" y="717.8" width="10" height="14" rx="1"/><rect x="-682.4" y="680.4" width="10" height="14" rx="1"/><rect x="-654.4" y="680.4" width="10" height="14" rx="1"/><rect x="-654.4" y="714.4" width="10" height="14" rx="1"/><rect x="-564.4" y="662.9" width="10" height="14" rx="1"/><rect x="-536.4" y="662.9" width="10" height="14" rx="1"/><rect x="-592.4" y="730.9" width="10" height="14" rx="1"/><rect x="-487.9" y="653.2" width="10" height="14" rx="1"/><rect x="-459.9" y="721.2" width="10" height="14" rx="1"/><rect x="-431.9" y="721.2" width="10" height="14" rx="1"/><rect x="-341.9" y="714.6" width="10" height="14" rx="1"/><rect x="-225.7" y="631.9" width="10" height="14" rx="1"/><rect x="-253.7" y="665.9" width="10" height="14" rx="1"/><rect x="-197.7" y="665.9" width="10" height="14" rx="1"/><rect x="-253.7" y="699.9" width="10" height="14" rx="1"/><rect x="-225.7" y="699.9" width="10" height="14" rx="1"/><rect x="-197.7" y="699.9" width="10" height="14" rx="1"/><rect x="-253.7" y="733.9" width="10" height="14" rx="1"/><rect x="-225.7" y="733.9" width="10" height="14" rx="1"/><rect x="-197.7" y="733.9" width="10" height="14" rx="1"/><rect x="-119.7" y="676.3" width="10" height="14" rx="1"/><rect x="-91.7" y="710.3" width="10" height="14" rx="1"/><rect x="-24.3" y="713.5" width="10" height="14" rx="1"/><rect x="82.4" y="702.2" width="10" height="14" rx="1"/><rect x="54.4" y="736.2" width="10" height="14" rx="1"/><rect x="82.4" y="736.2" width="10" height="14" rx="1"/><rect x="110.4" y="736.2" width="10" height="14" rx="1"/><rect x="161.3" y="655.7" width="10" height="14" rx="1"/><rect x="161.3" y="689.7" width="10" height="14" rx="1"/><rect x="189.3" y="689.7" width="10" height="14" rx="1"/><rect x="250.4" y="624" width="10" height="14" rx="1"/><rect x="278.4" y="624" width="10" height="14" rx="1"/><rect x="306.4" y="624" width="10" height="14" rx="1"/><rect x="250.4" y="658" width="10" height="14" rx="1"/><rect x="278.4" y="658" width="10" height="14" rx="1"/><rect x="306.4" y="658" width="10" height="14" rx="1"/><rect x="250.4" y="692" width="10" height="14" rx="1"/><rect x="250.4" y="726" width="10" height="14" rx="1"/><rect x="416.5" y="650.5" width="10" height="14" rx="1"/><rect x="444.5" y="650.5" width="10" height="14" rx="1"/><rect x="388.5" y="684.5" width="10" height="14" rx="1"/><rect x="416.5" y="684.5" width="10" height="14" rx="1"/><rect x="444.5" y="684.5" width="10" height="14" rx="1"/><rect x="652.5" y="641.2" width="10" height="14" rx="1"/><rect x="624.5" y="675.2" width="10" height="14" rx="1"/><rect x="624.5" y="709.2" width="10" height="14" rx="1"/><rect x="652.5" y="709.2" width="10" height="14" rx="1"/><rect x="837.6" y="643.8" width="10" height="14" rx="1"/><rect x="893.6" y="643.8" width="10" height="14" rx="1"/><rect x="921.6" y="643.8" width="10" height="14" rx="1"/><rect x="837.6" y="677.8" width="10" height="14" rx="1"/><rect x="865.6" y="677.8" width="10" height="14" rx="1"/><rect x="893.6" y="677.8" width="10" height="14" rx="1"/><rect x="921.6" y="677.8" width="10" height="14" rx="1"/><rect x="893.6" y="711.8" width="10" height="14" rx="1"/><rect x="921.6" y="711.8" width="10" height="14" rx="1"/><rect x="981.7" y="655.2" width="10" height="14" rx="1"/><rect x="1009.7" y="655.2" width="10" height="14" rx="1"/><rect x="1009.7" y="723.2" width="10" height="14" rx="1"/><rect x="1071.2" y="651.2" width="10" height="14" rx="1"/><rect x="1099.2" y="651.2" width="10" height="14" rx="1"/><rect x="1071.2" y="685.2" width="10" height="14" rx="1"/><rect x="1099.2" y="685.2" width="10" height="14" rx="1"/><rect x="1145.1" y="667.1" width="10" height="14" rx="1"/><rect x="1173.1" y="667.1" width="10" height="14" rx="1"/><rect x="1145.1" y="701.1" width="10" height="14" rx="1"/><rect x="1173.1" y="701.1" width="10" height="14" rx="1"/><rect x="1145.1" y="735.1" width="10" height="14" rx="1"/><rect x="1240.2" y="693.6" width="10" height="14" rx="1"/><rect x="1324.2" y="693.6" width="10" height="14" rx="1"/><rect x="1268.2" y="727.6" width="10" height="14" rx="1"/><rect x="1324.2" y="727.6" width="10" height="14" rx="1"/><rect x="1388.4" y="622.2" width="10" height="14" rx="1"/><rect x="1416.4" y="622.2" width="10" height="14" rx="1"/><rect x="1388.4" y="656.2" width="10" height="14" rx="1"/><rect x="1444.4" y="656.2" width="10" height="14" rx="1"/><rect x="1472.4" y="656.2" width="10" height="14" rx="1"/><rect x="1444.4" y="690.2" width="10" height="14" rx="1"/><rect x="1472.4" y="690.2" width="10" height="14" rx="1"/><rect x="1388.4" y="724.2" width="10" height="14" rx="1"/><rect x="1416.4" y="724.2" width="10" height="14" rx="1"/><rect x="1444.4" y="724.2" width="10" height="14" rx="1"/><rect x="1582.3" y="634.6" width="10" height="14" rx="1"/><rect x="1526.3" y="668.6" width="10" height="14" rx="1"/><rect x="1526.3" y="702.6" width="10" height="14" rx="1"/><rect x="1554.3" y="702.6" width="10" height="14" rx="1"/><rect x="1554.3" y="736.6" width="10" height="14" rx="1"/><rect x="1651.3" y="691.6" width="10" height="14" rx="1"/><rect x="1769.9" y="676.8" width="10" height="14" rx="1"/><rect x="1853.9" y="676.8" width="10" height="14" rx="1"/><rect x="1769.9" y="710.8" width="10" height="14" rx="1"/><rect x="1797.9" y="710.8" width="10" height="14" rx="1"/><rect x="1853.9" y="710.8" width="10" height="14" rx="1"/><rect x="1891.6" y="647.8" width="10" height="14" rx="1"/><rect x="1975.6" y="647.8" width="10" height="14" rx="1"/><rect x="1919.6" y="681.8" width="10" height="14" rx="1"/><rect x="1947.6" y="681.8" width="10" height="14" rx="1"/><rect x="1975.6" y="681.8" width="10" height="14" rx="1"/><rect x="1891.6" y="715.8" width="10" height="14" rx="1"/><rect x="2060.1" y="676" width="10" height="14" rx="1"/><rect x="2032.1" y="710" width="10" height="14" rx="1"/><rect x="2128.8" y="702.1" width="10" height="14" rx="1"/><rect x="2184.8" y="702.1" width="10" height="14" rx="1"/><rect x="2100.8" y="736.1" width="10" height="14" rx="1"/><rect x="2184.8" y="736.1" width="10" height="14" rx="1"/><rect x="2251.3" y="647" width="10" height="14" rx="1"/><rect x="2335.3" y="647" width="10" height="14" rx="1"/><rect x="2279.3" y="681" width="10" height="14" rx="1"/><rect x="2335.3" y="681" width="10" height="14" rx="1"/><rect x="2307.3" y="715" width="10" height="14" rx="1"/><rect x="2460.3" y="666.7" width="10" height="14" rx="1"/><rect x="2460.3" y="734.7" width="10" height="14" rx="1"/><rect x="2535.6" y="623.9" width="10" height="14" rx="1"/><rect x="2535.6" y="657.9" width="10" height="14" rx="1"/><rect x="2507.6" y="691.9" width="10" height="14" rx="1"/><rect x="2563.6" y="691.9" width="10" height="14" rx="1"/><rect x="2507.6" y="725.9" width="10" height="14" rx="1"/><rect x="2535.6" y="725.9" width="10" height="14" rx="1"/><rect x="2612.1" y="697.4" width="10" height="14" rx="1"/><rect x="2640.1" y="697.4" width="10" height="14" rx="1"/><rect x="2743.4" y="666.8" width="10" height="14" rx="1"/><rect x="2799.4" y="666.8" width="10" height="14" rx="1"/><rect x="2743.4" y="700.8" width="10" height="14" rx="1"/><rect x="2799.4" y="700.8" width="10" height="14" rx="1"/><rect x="2827.4" y="700.8" width="10" height="14" rx="1"/><rect x="2827.4" y="734.8" width="10" height="14" rx="1"/><rect x="2955.9" y="668.3" width="10" height="14" rx="1"/><rect x="2871.9" y="702.3" width="10" height="14" rx="1"/><rect x="2899.9" y="702.3" width="10" height="14" rx="1"/><rect x="2955.9" y="702.3" width="10" height="14" rx="1"/><rect x="2871.9" y="736.3" width="10" height="14" rx="1"/><rect x="2999.9" y="705.8" width="10" height="14" rx="1"/><rect x="3027.9" y="705.8" width="10" height="14" rx="1"/><rect x="2999.9" y="739.8" width="10" height="14" rx="1"/><rect x="3119.3" y="635.9" width="10" height="14" rx="1"/><rect x="3091.3" y="737.9" width="10" height="14" rx="1"/><rect x="3174.8" y="645.9" width="10" height="14" rx="1"/><rect x="3230.8" y="679.9" width="10" height="14" rx="1"/><rect x="3174.8" y="713.9" width="10" height="14" rx="1"/><rect x="3202.8" y="713.9" width="10" height="14" rx="1"/><rect x="292" y="540" width="16" height="26" rx="8"/></g>
 
   <path d="M-2000 768C-1200 720-600 800 0 762C300 742 600 800 900 774C1200 750 1400 792 1600 762C2200 720 2800 800 3600 760V2900H-2000Z" fill="url(#snoyta)"/>
-  <ellipse cx="800" cy="842" rx="260" ry="22" fill="#9fb3cc" opacity="0.6"/>
+  <ellipse cx="820" cy="842" rx="290" ry="22" fill="#9fb3cc" opacity="0.6"/>
 
   <!-- Gävlebocken -->
-  <use href="#bocken-langt-bort" fill="#a8742a"/>
-  <use href="#bocken-langt-bort" fill="url(#halmstran)"/>
-  <use href="#bocken-nara" fill="url(#halmfarg)"/>
-  <use href="#bocken-nara" fill="url(#halmstran)"/>
-  <g fill="none" stroke-linecap="round">
-    <path d="M990 250C950 140 840 130 830 210C826 246 856 262 872 244" stroke="#d9a441" stroke-width="30"/>
-    <path d="M1030 240C1012 128 900 104 880 176" stroke="#e6b553" stroke-width="26"/>
-    <path d="M990 250C950 140 840 130 830 210C826 246 856 262 872 244M1030 240C1012 128 900 104 880 176" stroke="#8a5a1c" stroke-width="2" stroke-dasharray="3 9" opacity="0.6"/>
+  <g filter="url(#halmkant)">
+    <use href="#horn-langt-bort" fill="none" stroke="#b9842f" stroke-width="38" stroke-linecap="round"/>
+    <use href="#horn-langt-bort" fill="none" stroke="url(#halmstran)" stroke-width="38" stroke-linecap="round"/>
+    <g clip-path="url(#form-langt-bort)">
+      <rect x="700" y="600" width="260" height="260" fill="#a06f27"/>
+      <rect x="700" y="600" width="260" height="260" fill="url(#halmstran)"/>
+    </g>
+    <g clip-path="url(#form-nara)">
+      <rect x="560" y="180" width="600" height="680" fill="url(#halmfarg)"/>
+      <rect x="560" y="180" width="600" height="680" fill="url(#halmstran)"/>
+      <rect x="560" y="180" width="600" height="680" fill="url(#halmskugga)"/>
+      <g fill="#2a1704" filter="url(#mjuk)">
+        <ellipse cx="990" cy="356" rx="80" ry="20" opacity="0.35"/>
+        <ellipse cx="820" cy="704" rx="230" ry="24" opacity="0.45"/>
+        <ellipse cx="900" cy="470" rx="40" ry="60" opacity="0.2"/>
+      </g>
+    </g>
+    <use href="#horn-nara" fill="none" stroke="url(#halmfarg)" stroke-width="44" stroke-linecap="round"/>
+    <use href="#horn-nara" fill="none" stroke="url(#halmstran)" stroke-width="44" stroke-linecap="round"/>
   </g>
-  <path d="M968 272C934 260 912 284 930 302C946 298 962 288 968 272Z" fill="#c38b33"/>
+  <use href="#horn-langt-bort" fill="none" stroke="#a50d26" stroke-width="40" stroke-dasharray="18 36"/>
+  <use href="#horn-nara" fill="none" stroke="#c8102e" stroke-width="46" stroke-dasharray="20 38"/>
   <g fill="#c8102e">
-    <path d="M898 432L1036 446L1030 478L889 464Z"/>
-    <path d="M1020 238L1040 236L1056 352L1036 354Z"/>
-    <rect x="618" y="780" width="48" height="14" rx="2"/>
-    <rect x="916" y="780" width="48" height="14" rx="2"/>
-    <rect x="684" y="780" width="42" height="12" rx="2" opacity="0.8"/>
-    <rect x="864" y="780" width="42" height="12" rx="2" opacity="0.8"/>
-    <path d="M700 462C704 520 706 600 700 664L722 666C728 600 726 520 722 458Z"/>
-    <path d="M878 460C884 520 886 600 880 666L902 664C908 600 906 520 900 462Z"/>
+    <path d="M1062 213C1073 250 1077 300 1071 343L1095 345C1101 300 1097 250 1087 216Z"/>
+    <path d="M872 450C902 520 932 600 934 702L972 702C972 600 946 514 910 442Z"/>
+    <path d="M824 398L902 382L910 420L832 438Z"/>
+    <rect x="624" y="798" width="110" height="34" rx="3"/>
+    <rect x="905" y="798" width="108" height="34" rx="3"/>
+  </g>
+  <g fill="#a50d26">
+    <rect x="739" y="798" width="68" height="34" rx="3"/>
+    <rect x="847" y="798" width="62" height="34" rx="3"/>
+    <path d="M832 438L910 420L912 430L834 448Z"/>
+  </g>
+  <g class="ljus" fill="none" stroke-linecap="round">
+    <use href="#horn-nara" stroke="#fff3b0" stroke-width="16" stroke-dasharray="0 29" opacity="0.5" filter="url(#sken)"/>
+    <use href="#horn-nara" stroke="#fffbe6" stroke-width="7" stroke-dasharray="0 29"/>
+    <use href="#horn-langt-bort" stroke="#fffbe6" stroke-width="6" stroke-dasharray="0 27" opacity="0.8"/>
   </g>
 
   <!-- Skylten -->
-  <rect x="1041" y="740" width="10" height="100" fill="#5a3a1c"/>
-  <g transform="rotate(-3 1046 720)">
-    <rect x="975" y="690" width="142" height="62" rx="6" fill="#8b5a2b" stroke="#5a3a1c" stroke-width="3"/>
-    <text x="1046" y="716" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#fdf3d0">BOCKEN STÅR</text>
-    <text x="1046" y="740" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf3d0">fortfarande ✅</text>
+  <rect x="1091" y="730" width="10" height="110" fill="#5a3a1c"/>
+  <g transform="rotate(-3 1096 710)">
+    <rect x="1025" y="680" width="142" height="62" rx="6" fill="#8b5a2b" stroke="#5a3a1c" stroke-width="3"/>
+    <text x="1096" y="706" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#fdf3d0">BOCKEN STÅR</text>
+    <text x="1096" y="730" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf3d0">fortfarande ✅</text>
   </g>
 </svg>

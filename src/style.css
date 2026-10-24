@@ -61,6 +61,16 @@ body {
   }
 }
 
+.ljus {
+  animation: glittra 2.6s ease-in-out infinite;
+}
+
+@keyframes glittra {
+  50% {
+    opacity: 0.55;
+  }
+}
+
 .rubrik {
   position: absolute;
   left: 2.5%;
@@ -571,7 +581,8 @@ body {
     display: none;
   }
 
-  .stjarnor .blink {
+  .stjarnor .blink,
+  .ljus {
     animation: none;
   }
 
