@@ -102,12 +102,18 @@ body {
 
 /* ---------- Luckorna ---------- */
 
+/* Listan täcker hela scenen; klick ska bara fångas av luckorna, inte av ytan mellan dem. */
 .luckor {
   position: absolute;
   inset: 0;
   margin: 0;
   padding: 0;
   list-style: none;
+  pointer-events: none;
+}
+
+.luckor .lucka {
+  pointer-events: auto;
 }
 
 .lucka {
